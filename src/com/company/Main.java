@@ -20,5 +20,12 @@ public class Main {
         iPhone.producer = "Apple";
         iPhone.model = "6S";
         iPhone.operationSystem = "ios";
+
+        Human me = new Human();
+        me.firstName = "Patryk";
+        me.lastName = "Cieszyński";
+        me.pet = dog;
+
+        System.out.println("Zwierzak nazywa się: " + me.pet.name);
     }
 }
