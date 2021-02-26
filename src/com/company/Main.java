@@ -3,10 +3,7 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-        Animal dog = new Animal();
-        dog.species = "dog";
-        dog.name = "Haiku";
-        dog.weight = 8.0;
+        Animal dog = new Animal("dog", 6.2, "Haiku");
         dog.feed();
 
         dog.feed();
@@ -15,16 +12,9 @@ public class Main {
         dog.feed();
         dog.feed();
 
-        Phone iPhone = new Phone();
-        iPhone.screenSize = 4.5;
-        iPhone.producer = "Apple";
-        iPhone.model = "6S";
-        iPhone.operationSystem = "ios";
+        Phone iPhone = new Phone("Apple", "6S", 4.5, "ios");
 
-        Human me = new Human();
-        me.firstName = "Patryk";
-        me.lastName = "Cieszyński";
-        me.pet = dog;
+        Human me = new Human("Patryk", "Cieszyński", "123456789", dog);
 
         System.out.println("Zwierzak nazywa się: " + me.pet.name);
     }
