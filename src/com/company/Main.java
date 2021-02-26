@@ -9,6 +9,12 @@ public class Main {
         dog.weight = 8.0;
         dog.feed();
 
+        dog.feed();
+        dog.feed();
+        dog.feed();
+        dog.feed();
+        dog.feed();
+
         Phone iPhone = new Phone();
         iPhone.screenSize = 4.5;
         iPhone.producer = "Apple";
