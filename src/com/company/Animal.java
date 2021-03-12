@@ -7,7 +7,11 @@ public class Animal {
     public String name;
     public File pic;
     private Double weight;
-    private final static Double DEFAULT_WEIGHT = 2.0;
+    private static final Double DEFAULT_FOOD_WEIGHT = 0.2;
+    private final static Double DEFAULT_ANIMAL_WEIGHT = 2.0;
+    private final static Double DEFAULT_CAT_WEIGHT = 3.0;
+    private final static Double DEFAULT_DOG_WEIGHT = 4.0;
+    private final static Double DEFAULT_COW_WEIGHT = 250.0;
 
     public Animal(String species, Double weight, String name) {
         this.species = species;
@@ -17,22 +21,27 @@ public class Animal {
 
     public Animal(String species, String name) {
         this.species = species;
-        this.weight = DEFAULT_WEIGHT;
         this.name = name;
+        switch (this.species) {
+            case "dog" -> this.weight = DEFAULT_DOG_WEIGHT;
+            case "cat" -> this.weight = DEFAULT_CAT_WEIGHT;
+            case "cow" -> this.weight = DEFAULT_COW_WEIGHT;
+            default -> this.weight = DEFAULT_ANIMAL_WEIGHT;
+        }
     }
 
     void feed() {
         if (weight > 0) {
-            weight += 1;
-            System.out.print("Thx for food, bro\n");
+            weight += DEFAULT_FOOD_WEIGHT;
+            System.out.print("Thx for food, bro. My weight is now " + this.weight + "\n");
         } else
             System.out.print("Your pet died. You monster!\n");
     }
 
     void takeForAWalk() {
         if (weight > 0) {
-            weight -= 1;
-            System.out.print("Thx for walk, bro\n");
+            weight -= DEFAULT_FOOD_WEIGHT;
+            System.out.print("Thx for walk. My weight is now " + this.weight + "\n");
         } else
             System.out.print("Your pet died. You monster!\n");
     }
