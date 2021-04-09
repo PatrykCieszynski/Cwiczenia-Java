@@ -1,4 +1,4 @@
-package com.company;
+package com.company.device;
 
 public class Car {
     public final String model;

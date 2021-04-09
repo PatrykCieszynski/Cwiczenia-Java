@@ -1,4 +1,6 @@
 package com.company;
+import com.company.device.Car;
+
 import java.time.LocalTime;
 
 public class Human {
@@ -46,5 +48,17 @@ public class Human {
             this.car = car;
         } else
             System.out.println("Nie da rady, trzeba zmienić pracę, wziąć kredyt :( weź się za siebie człowieku a nie memy wrzucasz!");
+    }
+
+    @Override
+    public String toString() {
+        return "Human{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", pet=" + pet +
+                ", car=" + car +
+                ", phone='" + phone + '\'' +
+                ", salary=" + salary +
+                '}';
     }
 }
