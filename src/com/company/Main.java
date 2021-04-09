@@ -16,8 +16,11 @@ public class Main {
         dog.takeForAWalk();
         dog.takeForAWalk();
         Human me = new Human("Patryk", "Cieszyński", "123456789", dog);
-
         me.car = new Car("126p", "Fiat", "red");
         System.out.println(me.car.model);
+
+        me.getSalary();
+        me.setSalary(3000);
+        me.getSalary();
     }
 }
