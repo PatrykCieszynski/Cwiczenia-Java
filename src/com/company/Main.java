@@ -15,12 +15,15 @@ public class Main {
         dog.takeForAWalk();
         dog.takeForAWalk();
         dog.takeForAWalk();
+        Car fiat = new Car("126p", "Fiat", "red", 2500.0);
         Human me = new Human("Patryk", "Cieszyński", "123456789", dog);
-        me.car = new Car("126p", "Fiat", "red");
-        System.out.println(me.car.model);
 
         me.getSalary();
         me.setSalary(3000);
         me.getSalary();
+
+        System.out.println(me.getCar());
+        me.setCar(fiat);
+        System.out.println(me.getCar());
     }
 }

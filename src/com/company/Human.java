@@ -5,7 +5,7 @@ public class Human {
     public String firstName;
     public String lastName;
     public Animal pet;
-    public Car car;
+    private Car car;
     protected String phone;
     private Double salary;
 
@@ -31,5 +31,20 @@ public class Human {
         this.lastName = lastName;
         this.phone = phone;
         this.pet = pet;
+    }
+
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCar(Car car) {
+        if (getSalary() > car.value) {
+            System.out.println("Udało się zakupić samochód");
+            this.car = car;
+        } else if (getSalary() > (car.value) / 12) {
+            System.out.println("Udało się zakupić samochód, ale na kredyt :/ Jest jak jest");
+            this.car = car;
+        } else
+            System.out.println("Nie da rady, trzeba zmienić pracę, wziąć kredyt :( weź się za siebie człowieku a nie memy wrzucasz!");
     }
 }
