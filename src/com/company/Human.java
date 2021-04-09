@@ -41,7 +41,7 @@ public class Human {
         if (getSalary() > car.value) {
             System.out.println("Udało się zakupić samochód");
             this.car = car;
-        } else if (getSalary() > (car.value) / 12) {
+        } else if (getSalary() > (car.value / 12)) {
             System.out.println("Udało się zakupić samochód, ale na kredyt :/ Jest jak jest");
             this.car = car;
         } else
