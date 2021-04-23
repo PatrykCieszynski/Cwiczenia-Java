@@ -10,4 +10,9 @@ public class Car extends Device {
         this.value = value;
     }
 
+    @Override
+    public void turnOn() {
+        System.out.println("Przekręcam kluczyk");
+    }
+
 }

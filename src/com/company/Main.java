@@ -34,5 +34,6 @@ public class Main {
         System.out.println(fiat);
         System.out.println(test);
         test.turnOn();
+        fiat.turnOn();
     }
 }
