@@ -2,7 +2,7 @@ package com.company;
 
 import java.io.File;
 
-public class Animal {
+public class Animal implements Salleable {
     final public String species;
     public String name;
     public File pic;
@@ -54,5 +54,20 @@ public class Animal {
                 ", pic=" + pic +
                 ", weight=" + weight +
                 '}';
+    }
+
+    @Override
+    public void sell(Human seller, Human buyer, Double price) {
+        if (seller.pet != this) {
+            System.out.println(("Nie możesz sprzedać czegoś czego nie posiadasz"));
+        } else if (buyer.cash < price) {
+            System.out.println(("Nie stać cię!"));
+        } else {
+            seller.cash += price;
+            buyer.cash -= price;
+            buyer.pet = seller.pet;
+            seller.pet = null;
+            System.out.println(("Transakcja udana, sprzedano " + this + " za " + price));
+        }
     }
 }

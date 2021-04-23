@@ -35,5 +35,12 @@ public class Main {
         System.out.println(test);
         test.turnOn();
         fiat.turnOn();
+        me.cash = 150.0;
+        Human brother = new Human();
+        brother.cash = 125.0;
+        me.pet.sell(me, brother, 20.0);
+        me.car.sell(me, brother, 50.0);
+        brother.phone = test;
+        brother.phone.sell(brother, me, 5.0);
     }
 }
