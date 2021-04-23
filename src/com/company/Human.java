@@ -1,5 +1,5 @@
 package com.company;
-import com.company.device.Car;
+import com.company.devices.Car;
 
 import java.time.LocalTime;
 
