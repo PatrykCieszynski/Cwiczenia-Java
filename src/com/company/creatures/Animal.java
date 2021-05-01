@@ -1,12 +1,15 @@
-package com.company;
+package com.company.creatures;
+
+import com.company.Human;
+import com.company.Salleable;
 
 import java.io.File;
 
-public class Animal implements Salleable {
+public abstract class Animal implements Salleable, Feedable {
     final public String species;
     public String name;
     public File pic;
-    private Double weight;
+    protected Double weight;
     private static final Double DEFAULT_FOOD_WEIGHT = 0.2;
     private final static Double DEFAULT_ANIMAL_WEIGHT = 2.0;
     private final static Double DEFAULT_CAT_WEIGHT = 3.0;
@@ -30,15 +33,15 @@ public class Animal implements Salleable {
         }
     }
 
-    void feed() {
+    public void feed() {
         if (weight > 0) {
             weight += DEFAULT_FOOD_WEIGHT;
-            System.out.print("Thx for food, bro. My weight is now " + this.weight + "\n");
+            System.out.print("Animal weight is now " + this.weight + "\n");
         } else
-            System.out.print("Your pet died. You monster!\n");
+            System.out.print("This animal died.\n");
     }
 
-    void takeForAWalk() {
+    public void takeForAWalk() {
         if (weight > 0) {
             weight -= DEFAULT_FOOD_WEIGHT;
             System.out.print("Thx for walk. My weight is now " + this.weight + "\n");

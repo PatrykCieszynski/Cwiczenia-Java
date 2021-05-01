@@ -1,18 +1,19 @@
 package com.company;
 
+import com.company.creatures.Pet;
 import com.company.devices.Car;
 import com.company.devices.Phone;
 
 public class Main {
 
     public static void main(String[] args) {
-        Animal dog = new Animal("dog", "Haiku");
+        Pet dog = new Pet("dog", "Haiku");
         Phone test = new Phone("Nokia", "3310", 1990, 5.0, "Android");
         dog.feed();
         dog.takeForAWalk();
         dog.takeForAWalk();
         dog.takeForAWalk();
-        dog.feed();
+        dog.feed(15);
         dog.takeForAWalk();
         dog.takeForAWalk();
         dog.takeForAWalk();
@@ -42,5 +43,6 @@ public class Main {
         me.car.sell(me, brother, 50.0);
         brother.phone = test;
         brother.phone.sell(brother, me, 5.0);
+        System.out.println(me.phone);
     }
 }
