@@ -16,7 +16,7 @@ public class FarmAnimal extends Animal implements Edible {
     }
 
     @Override
-    public void feed(double foodWeight) {
+    public void feed(Double foodWeight) {
         if (weight > 0) {
             weight += foodWeight;
             System.out.print("Animal weight is now " + this.weight + "\n");

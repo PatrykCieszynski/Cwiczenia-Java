@@ -2,7 +2,7 @@ package com.company.devices;
 
 import com.company.Human;
 
-public class Car extends Device implements com.company.Salleable {
+public abstract class Car extends Device implements com.company.Salleable {
     public String color;
     public Double value;
 
@@ -31,4 +31,6 @@ public class Car extends Device implements com.company.Salleable {
             System.out.println(("Transakcja udana, sprzedano " + this + " za " + price));
         }
     }
+
+    public abstract void refuel();
 }

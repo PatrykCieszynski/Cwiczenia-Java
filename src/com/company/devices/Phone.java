@@ -2,9 +2,15 @@ package com.company.devices;
 
 import com.company.Human;
 
+import java.net.URL;
+import java.util.List;
+
 public class Phone extends Device implements com.company.Salleable {
     final public Double screenSize;
     final public String operationSystem;
+    private static final String DEFAULT_APP_SERVER_URL = "http://127.0.0.1/";
+    private static final String DEFAULT_PROTOCOL = "3000";
+    private static final String DEFAULT_VERSION_NAME = "1.6.3";
 
     public Phone(String model, String producer, Integer yearofproduction, Double screenSize, String operationSystem) {
         super(model, producer, yearofproduction);
@@ -30,5 +36,25 @@ public class Phone extends Device implements com.company.Salleable {
             seller.phone = null;
             System.out.println(("Transakcja udana, sprzedano " + this + " za " + price));
         }
+    }
+
+    public void installAnApp(String appName) {
+
+    }
+
+    public void installAnApp(String appName, String appVersion) {
+
+    }
+
+    public void installAnApp(String appName, String appVersion, String appURL) {
+
+    }
+
+    public void installAnApp(List<String> appName) {
+
+    }
+
+    public void installAnApp(URL appURL) {
+
     }
 }

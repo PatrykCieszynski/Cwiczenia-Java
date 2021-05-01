@@ -11,7 +11,7 @@ public class Pet extends Animal {
     }
 
     @Override
-    public void feed(double foodWeight) {
+    public void feed(Double foodWeight) {
         if (weight > 0) {
             weight += foodWeight;
             System.out.print("Thx for food, bro. My weight is now " + this.weight + "\n");

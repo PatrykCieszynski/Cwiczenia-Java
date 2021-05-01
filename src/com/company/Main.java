@@ -1,7 +1,9 @@
 package com.company;
 
 import com.company.creatures.Pet;
-import com.company.devices.Car;
+import com.company.devices.Diesel;
+import com.company.devices.Electric;
+import com.company.devices.LPG;
 import com.company.devices.Phone;
 
 public class Main {
@@ -13,15 +15,16 @@ public class Main {
         dog.takeForAWalk();
         dog.takeForAWalk();
         dog.takeForAWalk();
-        dog.feed(15);
+        dog.feed(15.0);
         dog.takeForAWalk();
         dog.takeForAWalk();
         dog.takeForAWalk();
         dog.takeForAWalk();
         dog.takeForAWalk();
         dog.takeForAWalk();
-        Car fiat = new Car("126p", "Fiat", 1960, "red", 2500.0);
-        Car polonez = new Car("126p", "Fiat", 1970, "red", 2500.0);
+        Diesel fiat = new Diesel("126p", "Fiat", 1960, "red", 2500.0);
+        LPG polonez = new LPG("126p", "Fiat", 1970, "red", 2500.0);
+        Electric tesla = new Electric("cośtam", "Tesla", 2020, "white", 9999.9);
         Human me = new Human("Patryk", "Cieszyński", "123456789", dog);
 
         me.getSalary();
@@ -44,5 +47,9 @@ public class Main {
         brother.phone = test;
         brother.phone.sell(brother, me, 5.0);
         System.out.println(me.phone);
+
+        fiat.refuel();
+        polonez.refuel();
+        tesla.refuel();
     }
 }
