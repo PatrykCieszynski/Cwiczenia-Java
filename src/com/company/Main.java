@@ -33,7 +33,7 @@ public class Main {
         me.getSalary();
 
         System.out.println(me.getCar(1));
-        me.setCar(1, fiat);
+        me.setCar(fiat);
         System.out.println(me.getCar(1));
 
         System.out.println(fiat);
@@ -44,7 +44,15 @@ public class Main {
         Human brother = new Human("Patryk", "Cieszyński", "123456789", dog2);
         brother.cash = 125.0;
         me.pet.sell(me, brother, 20.0);
-        me.garage[1].sell(me, brother, 50.0, 1);
+        System.out.println(("Mój garaż"));
+        me.printGarage();
+        System.out.println(("Drugi garaż"));
+        brother.printGarage();
+        me.garage[0].sell(me, brother, 50.0, 0);
+        System.out.println(("Mój garaż"));
+        me.printGarage();
+        System.out.println(("Drugi garaż"));
+        brother.printGarage();
         brother.phone = test;
         brother.phone.sell(brother, me, 5.0);
         System.out.println(me.phone);
@@ -56,8 +64,10 @@ public class Main {
         me.garage[1] = polonez;
         me.garage[0] = tesla;
         System.out.println(me.getGarageValue());
+        System.out.println(("Mój garaż"));
         me.printGarage();
         me.sortGarage();
+        System.out.println(("Mój garaż"));
         me.printGarage();
     }
 }
