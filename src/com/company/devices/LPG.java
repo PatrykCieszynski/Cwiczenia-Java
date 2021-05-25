@@ -9,4 +9,5 @@ public class LPG extends Car {
     public void refuel() {
         System.out.println("Zatankowano samochód LPG");
     }
+
 }

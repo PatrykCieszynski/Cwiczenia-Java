@@ -10,6 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
         Pet dog = new Pet("dog", "Haiku");
+        Pet dog2 = new Pet("dog", "Burek");
         Phone test = new Phone("Nokia", "3310", 1990, 5.0, "Android");
         dog.feed();
         dog.takeForAWalk();
@@ -31,19 +32,19 @@ public class Main {
         me.setSalary(3000);
         me.getSalary();
 
-        System.out.println(me.getCar());
-        me.setCar(fiat);
-        System.out.println(me.getCar());
+        System.out.println(me.getCar(1));
+        me.setCar(1, fiat);
+        System.out.println(me.getCar(1));
 
         System.out.println(fiat);
         System.out.println(test);
         test.turnOn();
         fiat.turnOn();
         me.cash = 150.0;
-        Human brother = new Human();
+        Human brother = new Human("Patryk", "Cieszyński", "123456789", dog2);
         brother.cash = 125.0;
         me.pet.sell(me, brother, 20.0);
-        me.car.sell(me, brother, 50.0);
+        me.garage[1].sell(me, brother, 50.0, 1);
         brother.phone = test;
         brother.phone.sell(brother, me, 5.0);
         System.out.println(me.phone);
@@ -51,5 +52,12 @@ public class Main {
         fiat.refuel();
         polonez.refuel();
         tesla.refuel();
+
+        me.garage[1] = polonez;
+        me.garage[0] = tesla;
+        System.out.println(me.getGarageValue());
+        me.printGarage();
+        me.sortGarage();
+        me.printGarage();
     }
 }
