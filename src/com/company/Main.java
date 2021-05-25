@@ -34,14 +34,13 @@ public class Main {
         brother.phone = test;
         brother.phone.sell(brother, me, 5.0);
 
-        me.addCar(polonez);
-        me.addCar(tesla);
+        me.addCar(polonez, 0.0);
+        me.addCar(tesla, 0.0);
         System.out.println(polonez.getCurrentOwner());
         System.out.println(fiat.wasOwner(me));
         System.out.println(polonez.wasOwner(brother));
-        System.out.println(fiat.sellerAndBuyer(me, brother));
+        System.out.println(fiat.sellerAndBuyer(brother, me));
         System.out.println(fiat.transactionNumber());
         System.out.println(polonez.transactionNumber());
-        System.out.println(fiat.owners);
     }
 }

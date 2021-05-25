@@ -1,12 +1,13 @@
 package com.company.devices;
 
 import com.company.Human;
+import com.company.Transaction;
 
 import java.util.ArrayList;
 
 public abstract class Car extends Device implements com.company.Salleable, Comparable<Car> {
     public String color;
-    public ArrayList<Human> owners = new ArrayList<>();
+    public ArrayList<Transaction> transactions = new ArrayList<>();
 
     public Car(String model, String producer, Integer yearofproduction, String color, Double value) {
         super(model, producer, yearofproduction, value);
@@ -29,33 +30,45 @@ public abstract class Car extends Device implements com.company.Salleable, Compa
         } else {
             seller.cash += price;
             buyer.cash -= price;
-            buyer.addCar(this);
+            buyer.addCar(this, seller, price);
             seller.removeCar(this);
             System.out.println(("Transakcja udana, sprzedano " + this + " za " + price));
         }
     }
 
-    public void addOwner(Human human) {
-        owners.add(human);
+    public void addTransaction(Human buyer, Double price) {
+        transactions.add(new Transaction(buyer, price, new java.util.Date()));
+    }
+
+    public void addTransaction(Human buyer, Human seller, Double price) {
+        transactions.add(new Transaction(buyer, seller, price, new java.util.Date()));
     }
 
     public Human getCurrentOwner() {
-        if (owners.isEmpty())
+        if (transactions.isEmpty())
             return null;
         else
-            return owners.get(owners.size() - 1);
+            return Transaction.getOwner(transactions.get(transactions.size() - 1));
     }
 
     public boolean wasOwner(Human human) {
-        return owners.contains(human);
+        for (Transaction x : transactions) {
+            if (x.wasOwner(human))
+                return true;
+        }
+        return false;
     }
 
     public boolean sellerAndBuyer(Human seller, Human buyer) {
-        return owners.get(owners.indexOf(seller) + 1) == buyer;
+        for (Transaction x : transactions) {
+            if (x.sellerAndBuyer(seller, buyer))
+                return true;
+        }
+        return false;
     }
 
     public Integer transactionNumber() {
-        return owners.size() / 2;
+        return transactions.size();
     }
 
     @Override

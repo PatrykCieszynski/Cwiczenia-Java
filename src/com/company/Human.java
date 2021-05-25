@@ -57,10 +57,10 @@ public class Human {
     public void buyCar(Car car) {
         if (getSalary() > car.value) {
             System.out.println("Udało się zakupić samochód");
-            this.addCar(car);
+            this.addCar(car, car.value);
         } else if (getSalary() > (car.value / 12)) {
             System.out.println("Udało się zakupić samochód, ale na kredyt :/ Jest jak jest");
-            this.addCar(car);
+            this.addCar(car, car.value);
         } else
             System.out.println("Nie da rady, trzeba zmienić pracę, wziąć kredyt :( weź się za siebie człowieku a nie memy wrzucasz!");
     }
@@ -100,9 +100,14 @@ public class Human {
         }
     }
 
-    public void addCar(Car newCar) {
+    public void addCar(Car newCar, Double price) {
         garage[garageFirstEmptyPlace()] = newCar;
-        newCar.addOwner(this);
+        newCar.addTransaction(this, price);
+    }
+
+    public void addCar(Car newCar, Human seller, Double price) {
+        garage[garageFirstEmptyPlace()] = newCar;
+        newCar.addTransaction(this, seller, price);
     }
 
     public Integer garageFirstEmptyPlace() {
