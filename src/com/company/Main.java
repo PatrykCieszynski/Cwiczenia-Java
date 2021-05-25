@@ -48,7 +48,7 @@ public class Main {
         me.printGarage();
         System.out.println(("Drugi garaż"));
         brother.printGarage();
-        me.garage[0].sell(me, brother, 50.0, 0);
+        me.garage[0].sell(me, brother, 50.0);
         System.out.println(("Mój garaż"));
         me.printGarage();
         System.out.println(("Drugi garaż"));

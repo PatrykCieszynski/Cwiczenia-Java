@@ -2,7 +2,7 @@ package com.company.devices;
 
 import com.company.Human;
 
-public abstract class Car extends Device implements com.company.SalleableCars, Comparable<Car> {
+public abstract class Car extends Device implements com.company.Salleable, Comparable<Car> {
     public String color;
 
     public Car(String model, String producer, Integer yearofproduction, String color, Double value) {
@@ -16,8 +16,8 @@ public abstract class Car extends Device implements com.company.SalleableCars, C
     }
 
     @Override
-    public void sell(Human seller, Human buyer, Double price, Integer garageNumber) {
-        if (seller.garage[garageNumber] != this) {
+    public void sell(Human seller, Human buyer, Double price) {
+        if (!seller.hasCar(this)) {
             System.out.println(("Nie możesz sprzedać czegoś czego nie posiadasz"));
         } else if (!buyer.garageHasEmptyPlace()) {
             System.out.println(("Kupujący nie ma miejsca na nowy samochód"));
@@ -26,8 +26,8 @@ public abstract class Car extends Device implements com.company.SalleableCars, C
         } else {
             seller.cash += price;
             buyer.cash -= price;
-            buyer.garage[buyer.garageFirstEmptyPlace()] = seller.garage[garageNumber];
-            seller.garage[garageNumber] = null;
+            buyer.addCar(this);
+            seller.removeCar(this);
             System.out.println(("Transakcja udana, sprzedano " + this + " za " + price));
         }
     }

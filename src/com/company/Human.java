@@ -65,6 +65,14 @@ public class Human {
             System.out.println("Nie da rady, trzeba zmienić pracę, wziąć kredyt :( weź się za siebie człowieku a nie memy wrzucasz!");
     }
 
+    public boolean hasCar(Car newCar) {
+        for (Car car : garage) {
+            if (car == newCar)
+                return true;
+        }
+        return false;
+    }
+
     public Double getGarageValue() {
         Double val = 0.0;
         for (Car car : garage) {
@@ -79,11 +87,21 @@ public class Human {
 
     public boolean garageHasEmptyPlace() {
         for (Car car : garage) {
-            if (car == null) {
+            if (car == null)
                 return true;
-            }
         }
         return false;
+    }
+
+    public void removeCar(Car carToRemove) {
+        for (int i = 0; i < garage.length; i++) {
+            if (garage[i] == carToRemove)
+                garage[i] = null;
+        }
+    }
+
+    public void addCar(Car newCar) {
+        garage[garageFirstEmptyPlace()] = newCar;
     }
 
     public Integer garageFirstEmptyPlace() {
