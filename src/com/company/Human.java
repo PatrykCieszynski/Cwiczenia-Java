@@ -17,6 +17,20 @@ public class Human {
     public Double cash;
     public Car[] garage;
 
+    public Human(String firstName, String lastName, String phonenumber) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phonenumber = phonenumber;
+        this.garage = new Car[DEFAULT_GARAGE_SIZE];
+    }
+
+    public Human(String firstName, String lastName, String phonenumber, Integer garagesize) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phonenumber = phonenumber;
+        this.garage = new Car[garagesize];
+    }
+
     public Double getSalary() {
         System.out.println(LocalTime.now());
         System.out.println(salary);
@@ -34,21 +48,6 @@ public class Human {
         }
     }
 
-    public Human(String firstName, String lastName, String phonenumber, Animal pet) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phonenumber = phonenumber;
-        this.pet = pet;
-        this.garage = new Car[DEFAULT_GARAGE_SIZE];
-    }
-
-    public Human(String firstName, String lastName, String phonenumber, Animal pet, Integer garageSize) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phonenumber = phonenumber;
-        this.pet = pet;
-        this.garage = new Car[garageSize];
-    }
 
     public Car getCar(Integer garageNumber) {
         return garage[garageNumber];
@@ -125,6 +124,18 @@ public class Human {
         for (Car car : garage) {
             System.out.println(car);
         }
+    }
+
+    public void setPhone(Phone phone) {
+        this.phone = phone;
+    }
+
+    public Double getCash() {
+        return cash;
+    }
+
+    public void pay(Double price) {
+        this.cash -= price;
     }
 
     @Override

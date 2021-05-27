@@ -1,46 +1,34 @@
 package com.company;
 
-import com.company.creatures.Pet;
-import com.company.devices.Diesel;
-import com.company.devices.Electric;
-import com.company.devices.LPG;
 import com.company.devices.Phone;
 
 public class Main {
 
     public static void main(String[] args) {
-        Pet dog = new Pet("dog", "Haiku");
-        Pet dog2 = new Pet("dog", "Burek");
-        Phone test = new Phone("Nokia", "3310", 1990, 5.0, "Android");
-        dog.feed();
-        dog.takeForAWalk();
-        dog.feed(15.0);
-        dog.takeForAWalk();
 
-        Diesel fiat = new Diesel("126p", "Fiat", 1960, "red", 2500.0);
-        LPG polonez = new LPG("126p", "Fiat", 1970, "red", 2500.0);
-        Electric tesla = new Electric("cośtam", "Tesla", 2020, "white", 9999.9);
-        Human me = new Human("Patryk", "Cieszyński", "123456789", dog);
-
-        me.setSalary(3000);
-
-        me.buyCar(fiat);
+        Human me = new Human("Patryk", "Cieszyński", "123456789");
+        Phone nokia = new Phone("3310", "Nokia", 1990, 5.0, "Android", me);
+        Human brother = new Human("Jan", "Nowak", "123456789");
         me.cash = 150.0;
-        Human brother = new Human("Jan", "Nowak", "123456789", dog2);
         brother.cash = 125.0;
-        me.pet.sell(me, brother, 20.0);
-        me.garage[0].sell(me, brother, 50.0);
 
-        brother.phone = test;
-        brother.phone.sell(brother, me, 5.0);
-
-        me.addCar(polonez, 0.0);
-        me.addCar(tesla, 0.0);
-        System.out.println(polonez.getCurrentOwner());
-        System.out.println(fiat.wasOwner(me));
-        System.out.println(polonez.wasOwner(brother));
-        System.out.println(fiat.sellerAndBuyer(brother, me));
-        System.out.println(fiat.transactionNumber());
-        System.out.println(polonez.transactionNumber());
+        me.phone.sell(me, brother, 5.0);
+        Application teams = new Application("Teams", "1.0.2", 5.0);
+        Application skype = new Application("Skype", "2.3.8", 2.1);
+        Application x = new Application("X", "3.12", 50.0);
+        Application a = new Application("Aaaa", "13.2", 2.2);
+        Phone.findFreeApps();
+        System.out.println(nokia.checkIfInstalled(skype));
+        System.out.println(nokia.checkIfInstalled("Skype"));
+        nokia.installApp(skype);
+        System.out.println(nokia.checkIfInstalled(skype));
+        System.out.println(nokia.checkIfInstalled("Skype"));
+        System.out.println(nokia.checkAppsValue());
+        nokia.installApp(teams);
+        nokia.installApp(x);
+        nokia.installApp(a);
+        System.out.println(nokia.checkAppsValue());
+        nokia.appSortByName();
+        nokia.appSortByPrice();
     }
 }
